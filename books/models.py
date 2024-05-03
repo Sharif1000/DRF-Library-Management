@@ -25,7 +25,7 @@ class Book(models.Model):
 
 
 class Borrower(models.Model):
-    name= models.ForeignKey(UserAccount,on_delete= models.CASCADE)
+    name= models.ForeignKey(User,on_delete= models.CASCADE)
     book= models.ForeignKey(Book,on_delete= models.CASCADE)
     borrowDate = models.DateTimeField(auto_now_add=True)
 
@@ -38,7 +38,7 @@ class Borrower(models.Model):
     
     
 class Wishlist(models.Model):
-    name= models.ForeignKey(UserAccount,on_delete= models.CASCADE)
+    name= models.ForeignKey(User,on_delete= models.CASCADE)
     book= models.ForeignKey(Book,on_delete= models.CASCADE)
     borrowDate = models.DateTimeField(auto_now_add=True)
 

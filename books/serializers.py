@@ -8,14 +8,17 @@ class BookCategorySerializer(serializers.ModelSerializer):
         
         
 class BookSerializer(serializers.ModelSerializer):
+    genre_name = serializers.CharField(source='genre.name', read_only=True)
+    
     class Meta:
         model = models.Book
         fields = '__all__'
+        extra_fields = ['genre_name']
         
         
 class BorrowerSerializer(serializers.ModelSerializer):
-    name = serializers.StringRelatedField(many=False)
-    book = serializers.StringRelatedField(many=False)
+    #name = serializers.StringRelatedField(many=False)
+    #book = serializers.StringRelatedField(many=False)
     class Meta:
         model = models.Borrower
         fields = '__all__'
